@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>career growth — skills, certs & income</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #0f1115; color: #e8e8e8; min-height: 100vh; padding: 2.5rem 1.5rem; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 1.6rem; text-align: center; }
+  h1 span { color: #6ee7ff; }
+  h2.section-title { font-size: 1.05rem; color: #6ee7ff; margin: 2rem 0 .9rem; text-transform: lowercase; }
+  h3.sub2 { font-size: .85rem; color: #aaa; margin: 1.2rem 0 .5rem; text-transform: lowercase; }
+  .sub { text-align: center; color: #888; margin: .5rem 0 1.8rem; font-size: .9rem; line-height: 1.6; }
+  .sub a { color: #6ee7ff; }
+  .grid { display: flex; gap: .5rem; flex-wrap: wrap; }
+  .card { background: #1a1d24; border: 1px solid #2a2e38; border-radius: 8px;
+    padding: .55rem .7rem; min-width: 150px; flex: 1 1 200px;
+    text-decoration: none; color: inherit; display: block;
+    transition: transform .15s, border-color .15s; }
+  .card:hover { transform: translateY(-2px); border-color: #6ee7ff; }
+  .card h3 { font-size: .82rem; font-weight: 600; line-height: 1.3; }
+  .card p { margin-top: .25rem; color: #888; font-size: .72rem; line-height: 1.5; }
+  .panel { background: #1a1d24; border: 1px solid #2a2e38; border-radius: 8px;
+    padding: .7rem .9rem; margin-bottom: .6rem; }
+  .panel h3 { font-size: .85rem; font-weight: 600; margin-bottom: .3rem; }
+  .panel h3 .k { color: #6ee7ff; font-weight: 400; font-size: .75rem; }
+  .panel p, .panel li { color: #bbb; font-size: .78rem; line-height: 1.6; }
+  .panel ul, .panel ol { margin: .3rem 0 .3rem 1.2rem; }
+  .panel .ex { margin-top: .35rem; padding: .4rem .6rem; background: #14161c; border-radius: 6px; }
+  .panel .ex b { color: #6ee7ff; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: .78rem; margin-top: .4rem; }
+  th { text-align: left; color: #6ee7ff; font-weight: 600; padding: .35rem .5rem; border-bottom: 1px solid #2a2e38; text-transform: lowercase; }
+  td { padding: .35rem .5rem; border-bottom: 1px solid #1e2129; color: #bbb; }
+  td:first-child { color: #e8e8e8; }
+  .blunt { border-left: 3px solid #6ee7ff; }
+  .blunt p b { color: #e8e8e8; }
+  .rank { display: inline-block; background: #6ee7ff; color: #0f1115; font-weight: 700;
+    font-size: .7rem; border-radius: 4px; padding: .05rem .35rem; margin-right: .4rem; }
+  footer { margin: 3rem 0 1rem; text-align: center; color: #555; font-size: .78rem; line-height: 1.7; }
+  footer a { color: #6ee7ff; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>career growth <span>skills, certs & income</span></h1>
+  <div class="sub">the income playbook for a healthcare data analyst on the payer side, focused on ncqa hedis &middot; last updated 2026-09-29 &middot; <a href="index.html">&larr; back to alan's sites</a></div>
+
+  <h2 class="section-title">overview</h2>
+  <div class="panel">
+    <p>A healthcare data analyst at a major california health plan sits at one of the best intersections in data work: a regulated domain where the numbers translate directly into dollars. <b>hedis star ratings drive bonus payments</b> for medicare advantage plans, <b>risk adjustment (hcc) accuracy drives revenue</b>, and the whole industry is mid-migration from legacy stacks (sas, netezza) to modern lakehouses (databricks, delta lake, unity catalog). the analyst who owns both the domain <i>and</i> the modern stack is scarce — and scarcity is what raises pay.</p>
+  </div>
+  <div class="panel blunt">
+    <p>the blunt version: <b>sas-only hedis analysts are a commodity. databricks + hedis + star ratings analysts are not.</b> every skill bet below is about moving from the first group to the second.</p>
+  </div>
+
+  <h2 class="section-title">where you stand now</h2>
+  <div class="panel">
+    <table>
+      <tr><th>asset</th><th>what it is</th><th>market value</th></tr>
+      <tr><td>hedis / ncqa domain depth</td><td>bcs, col, awv, omw, ccs measure logic; membership/claims data</td><td>high — few analysts truly own measure specs end to end</td></tr>
+      <tr><td>sas + netezza</td><td>legacy analytics workhorse</td><td>declining — still used, but nobody is migrating <i>toward</i> it</td></tr>
+      <tr><td>databricks / unity catalog migration</td><td>delta tables, control tables, validation/logging on a lakehouse</td><td>rising fast — this is the resume line that matters most right now</td></tr>
+      <tr><td>python + sql + powershell</td><td>general analytics engineering toolkit</td><td>solid — python + sql is the baseline for every higher-paying role</td></tr>
+      <tr><td>postgresql, duckdb, clickhouse, minio</td><td>modern olap + object storage fluency</td><td>differentiator — most payer analysts never touch these</td></tr>
+      <tr><td>homelab / local ai</td><td>self-hosted infra, ollama, docker, networking</td><td>bonus — proves you can build, not just query</td></tr>
+    </table>
+    <p style="margin-top:.5rem">honest note on education: some college, no degree on file. in data engineering and analytics this matters less than shipped production work — but some large employers still filter on it. the offset is simple: certifications + a portfolio of real pipelines beat a diploma line in interviews.</p>
+  </div>
+
+  <h2 class="section-title">highest-roi skill bets</h2>
+  <div class="panel">
+    <h3><span class="rank">1</span>databricks / spark + delta lake + unity catalog <span class="k">do this first — already in progress</span></h3>
+    <p>the netezza → databricks migration is the single highest-leverage thing on the list because it is <b>production experience on the exact stack employers are hiring for</b>. certified databricks data engineers sit in the $130k–$180k band nationally, and the talent pool is still small relative to demand — especially in healthcare, where adoption is heaviest. finish the migration, document the control-table and validation patterns, then certify (see certs section). this one skill is worth more than the next three combined.</p>
+    <div class="ex"><p><b>concrete move:</b> own one full monthly dataset migration end to end — source extract, delta table design, unity catalog grants, validation queries, logging — and be able to whiteboard it in an interview.</p></div>
+  </div>
+  <div class="panel">
+    <h3><span class="rank">2</span>hedis depth → star ratings &amp; gap-closure analytics <span class="k">domain moat</span></h3>
+    <p>most analysts can run a hedis measure. far fewer can explain <b>which measures move star ratings, what each star is worth in bonus dollars, and where the gaps are closable</b>. learn hybrid measure methodology (chart chase / medical record review), audit readiness, and build a gap-closure view: members out of compliance, ranked by closability. senior hedis analyst postings in california run $84k–$135k (caloptima's published band), and the ones that mention star ratings and audit work sit at the top of it.</p>
+    <div class="ex"><p><b>concrete move:</b> pick one measure (bcs or col) and own it completely — spec, data lineage, hybrid sampling support, gap list, audit artifacts.</p></div>
+  </div>
+  <div class="panel">
+    <h3><span class="rank">3</span>risk adjustment / hcc analytics <span class="k">adjacent revenue domain</span></h3>
+    <p>risk adjustment is the other half of payer economics: accurate hcc capture directly changes plan revenue. analysts who can validate raf (risk adjustment factor) calculations, spot coding gaps, and tie diagnosis data to revenue are rare and well paid. it uses the same claims/member data you already work with — the learning curve is the cms-hcc model, not the tooling.</p>
+    <div class="ex"><p><b>concrete move:</b> read the cms-hcc model documentation and build one analysis: members with chronic conditions but no matching hcc-coded diagnosis in the payment year.</p></div>
+  </div>
+  <div class="panel">
+    <h3><span class="rank">4</span>analytics engineering: dbt + orchestration <span class="k">analyst → engineer bridge</span></h3>
+    <p>the pay jump from "analyst" to "analytics/data engineer" titles is $20k–$40k, and the bridge is pipeline ownership: version-controlled transformations (dbt), scheduled orchestration (airflow/dagster or databricks workflows), tests on data, documented lineage. you already do the logic in sas — translating it into dbt models on the lakehouse is the promotion-shaped version of the same work.</p>
+    <div class="ex"><p><b>concrete move:</b> reimplement one monthly sas program as dbt models with tests, and run it on a schedule. that is a portfolio piece and a promotion argument in one.</p></div>
+  </div>
+  <div class="panel">
+    <h3><span class="rank">5</span>ml for member outreach targeting <span class="k">staff-level differentiator</span></h3>
+    <p>predictive models for gap-closure propensity, readmission risk, or disenrollment risk are what separate senior from staff-level analysts. you do not need a phd — logistic regression / gradient boosting on member features, scored monthly, handed to the outreach team as a ranked list. one shipped model that measurably moves a hedis rate is worth more in a promotion packet than any certificate.</p>
+    <div class="ex"><p><b>concrete move:</b> build a simple propensity model for one gap-closure campaign, score it monthly in databricks, and track whether the targeted list closes gaps faster than the untargeted one.</p></div>
+  </div>
+
+  <h2 class="section-title">the roadmap</h2>
+  <div class="panel">
+    <h3>90 days <span class="k">now → end of 2026</span></h3>
+    <ul>
+      <li>finish owning the netezza → databricks migration for your monthly datasets; document the control-table + validation pattern as a runbook.</li>
+      <li>pass the <b>databricks certified data engineer associate</b> exam (~$200, ~35 hrs study).</li>
+      <li>pick one hedis measure (bcs or col) and produce a one-page lineage doc: source → transform → measure output → audit artifact.</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h3>6 months <span class="k">→ q1 2027</span></h3>
+    <ul>
+      <li>ship a gap-closure dashboard for at least two measures, ranked by closability, refreshed monthly.</li>
+      <li>reimplement one sas program as dbt models with tests on the lakehouse.</li>
+      <li>start the cms-hcc model: one risk-adjustment gap analysis delivered to the quality team.</li>
+      <li>begin cphq study (health data analytics domain overlaps your daily work).</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h3>12 months <span class="k">→ q3 2027</span></h3>
+    <ul>
+      <li>earn <b>databricks data engineer professional</b> <i>or</i> <b>cphq</b> — one platform cert, one domain cert. both, if momentum allows.</li>
+      <li>one ml targeting model in production scoring, with measured impact on a hedis rate or outreach efficiency.</li>
+      <li>promotion packet internally (senior title) <i>or</i> external search — with 12+ months of databricks production work, you interview from strength.</li>
+    </ul>
+  </div>
+
+  <h2 class="section-title">certifications: get vs skip</h2>
+  <div class="panel">
+    <table>
+      <tr><th>cert</th><th>verdict</th><th>why</th></tr>
+      <tr><td>databricks certified data engineer associate</td><td><b>get</b></td><td>$130k–$180k salary band roles; ~$200 exam; validates the stack you're already migrating to</td></tr>
+      <tr><td>databricks certified data engineer professional</td><td><b>get next</b></td><td>+$15k–$25k typical uplift; streaming, performance, unity catalog governance — senior-role material</td></tr>
+      <tr><td>cphq (certified professional in healthcare quality)</td><td><b>get</b></td><td>the recognized benchmark for quality roles; health data analytics + performance measurement domains overlap your work; preferred on senior quality postings</td></tr>
+      <tr><td>aws solutions architect</td><td>skip</td><td>generic cloud cert; only worth it if your org is aws-heavy and the role requires it — databricks cert beats it for your path</td></tr>
+      <tr><td>pmp</td><td>skip</td><td>management-track credential; you are on an ic (individual contributor) track where shipped pipelines matter more</td></tr>
+      <tr><td>sas certifications</td><td>skip</td><td>declining market value; the industry is migrating away from sas, not toward it</td></tr>
+      <tr><td>generic data-science bootcamp certs</td><td>skip</td><td>no hiring signal; a shipped model on your resume beats all of them</td></tr>
+    </table>
+    <p style="margin-top:.5rem">rule of thumb: a cert is worth it when it <b>validates production work you already do</b>. a cert as a substitute for experience is not.</p>
+  </div>
+
+  <h2 class="section-title">income paths</h2>
+  <div class="panel">
+    <table>
+      <tr><th>path</th><th>california band (2026)</th><th>what unlocks it</th></tr>
+      <tr><td>senior data analyst (promotion)</td><td>$115k–$145k</td><td>end-to-end measure ownership, gap-closure impact, databricks associate cert</td></tr>
+      <tr><td>staff / principal analyst (ic track)</td><td>$140k–$175k</td><td>ml targeting model in production, cross-team technical leadership, professional cert or cphq</td></tr>
+      <tr><td>analytics / data engineer (payer or tech)</td><td>$130k–$180k</td><td>dbt + orchestration + databricks professional; pipeline portfolio</td></tr>
+      <tr><td>healthcare consulting (guidehouse-type firms)</td><td>$150k–$200k+ salary; $125–$175/hr contract</td><td>hedis + star ratings + risk adjustment domain depth; cphq helps</td></tr>
+      <tr><td>freelance analytics engineering</td><td>$100–$175/hr</td><td>databricks cert + shipped pipelines; payer domain is a premium niche</td></tr>
+    </table>
+    <p style="margin-top:.5rem">bands are base salary unless noted, grounded in 2026 california postings (senior hedis analyst roles at california plans publish $84k–$135k; senior healthcare data analyst averages ~$106k nationally, ~$143k in san francisco). the top of every band goes to people who can point at <b>measured business impact</b> — a star rating moved, a gap closed, a pipeline that replaced a manual process.</p>
+  </div>
+  <div class="grid">
+    <a class="card" href="https://www.databricks.com/learn/certification/data-engineer-associate" target="_blank" rel="noopener">
+      <h3>databricks data engineer associate</h3><p>the first cert to get — exam guide and registration.</p>
+    </a>
+    <a class="card" href="https://nahq.org/certification/" target="_blank" rel="noopener">
+      <h3>cphq — nahq</h3><p>certified professional in healthcare quality — the domain credential.</p>
+    </a>
+    <a class="card" href="https://www.ncqa.org/hedis/" target="_blank" rel="noopener">
+      <h3>ncqa hedis</h3><p>official measure specifications — know the source material cold.</p>
+    </a>
+    <a class="card" href="https://www.cms.gov/medicare/payment/fee-for-service-providers/part-c-d" target="_blank" rel="noopener">
+      <h3>cms risk adjustment</h3><p>hcc model documentation — the revenue side of payer analytics.</p>
+    </a>
+    <a class="card" href="https://docs.getdbt.com/" target="_blank" rel="noopener">
+      <h3>dbt docs</h3><p>the analytics-engineering toolkit for the pipeline-ownership bet.</p>
+    </a>
+  </div>
+
+  <h2 class="section-title">mistakes that stall income growth</h2>
+  <div class="panel">
+    <ul>
+      <li><b>staying sas-only.</b> every year the legacy stack is a bigger share of your resume, the market values you less. the migration you are doing now is the exit — finish it.</li>
+      <li><b>collecting certs without shipping.</b> a cert validates production work; it does not substitute for it. one shipped pipeline beats three badges.</li>
+      <li><b>leaving before 12–18 months of databricks production work.</b> the market pays for <i>production</i> lakehouse experience. jumping at month 6 sells the story short.</li>
+      <li><b>ignoring the business metric.</b> analysts who talk in row counts stay analysts. analysts who talk in star ratings, gap closures, and bonus dollars get promoted.</li>
+      <li><b>no evidence file.</b> keep a running log of what you shipped and what it moved — promotion packets and interviews run on specifics, not vibes.</li>
+      <li><b>waiting to be noticed.</b> promotions go to people who make their impact legible: dashboards people use, docs people read, models that score monthly.</li>
+    </ul>
+  </div>
+
+  <footer>
+    researched and built 2026-09-29 &mdash; salary bands from 2026 california postings and national surveys.<br>
+    <a href="index.html">&larr; back to alan's sites</a>
+  </footer>
+</div>
+</body>
+</html>
