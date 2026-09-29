@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ai agents — muse, hermes, openclaw</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #0f1115; color: #e8e8e8; min-height: 100vh; padding: 2.5rem 1.5rem; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 1.6rem; text-align: center; }
+  h1 span { color: #6ee7ff; }
+  h2.section-title { font-size: 1.05rem; color: #6ee7ff; margin: 2rem 0 .9rem; text-transform: lowercase; }
+  h3.sub2 { font-size: .85rem; color: #aaa; margin: 1.2rem 0 .5rem; text-transform: lowercase; }
+  .sub { text-align: center; color: #888; margin: .5rem 0 1.8rem; font-size: .9rem; line-height: 1.6; }
+  .sub a { color: #6ee7ff; }
+  .grid { display: flex; gap: .5rem; flex-wrap: wrap; }
+  .card { background: #1a1d24; border: 1px solid #2a2e38; border-radius: 8px;
+    padding: .55rem .7rem; min-width: 150px; flex: 1 1 200px;
+    text-decoration: none; color: inherit; display: block;
+    transition: transform .15s, border-color .15s; }
+  .card:hover { transform: translateY(-2px); border-color: #6ee7ff; }
+  .card h3 { font-size: .82rem; font-weight: 600; line-height: 1.3; }
+  .card p { margin-top: .25rem; color: #888; font-size: .72rem; line-height: 1.5; }
+  .panel { background: #1a1d24; border: 1px solid #2a2e38; border-radius: 8px;
+    padding: .7rem .9rem; margin-bottom: .6rem; }
+  .panel h3 { font-size: .85rem; font-weight: 600; margin-bottom: .3rem; }
+  .panel h3 .k { color: #6ee7ff; font-weight: 400; font-size: .75rem; }
+  .panel p, .panel li { color: #bbb; font-size: .78rem; line-height: 1.6; }
+  .panel ul, .panel ol { margin: .3rem 0 .3rem 1.2rem; }
+  .panel .ex { margin-top: .35rem; padding: .4rem .6rem; background: #14161c; border-radius: 6px; }
+  .panel .ex b { color: #6ee7ff; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: .78rem; margin-top: .4rem; }
+  th { text-align: left; color: #6ee7ff; font-weight: 600; padding: .35rem .5rem; border-bottom: 1px solid #2a2e38; text-transform: lowercase; }
+  td { padding: .35rem .5rem; border-bottom: 1px solid #1e2129; color: #bbb; }
+  td:first-child { color: #e8e8e8; }
+  .blunt { border-left: 3px solid #6ee7ff; }
+  .blunt p b { color: #e8e8e8; }
+  footer { margin: 3rem 0 1rem; text-align: center; color: #555; font-size: .78rem; line-height: 1.7; }
+  footer a { color: #6ee7ff; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>ai agents <span>muse, hermes, openclaw</span></h1>
+  <div class="sub">what they are, how they run on their own, and how to make them actually useful &middot; last updated 2026-09-29 &middot; <a href="index.html">&larr; back to alan's sites</a></div>
+
+  <h2 class="section-title">overview</h2>
+  <div class="panel">
+    <p>A <b>chatbot</b> waits for you to talk to it, answers, and forgets. An <b>ai agent</b> is software that acts on your behalf: it has tools (run code, browse the web, send messages, read files), persistent memory, and a way to start work without you — on a schedule, on an event, or when another agent hands it a task. The three systems here cover three different ways to get that: a managed service (muse), homelab daemons you run yourself (hermes), and a self-hosted chat gateway (openclaw).</p>
+  </div>
+
+  <h2 class="section-title">muse</h2>
+  <div class="panel">
+    <p><b>muse</b> is meta's personal ai agent: your own agent running on its own dedicated computer, reachable from web, ios, android, and mac apps. model: muse spark. this page's owner runs inside it.</p>
+  </div>
+  <h3 class="sub2">autonomy primitives</h3>
+  <div class="grid">
+    <div class="panel" style="flex:1 1 300px">
+      <h3>scheduled crons</h3>
+      <p>agent tasks that fire on a schedule — reminders, briefings, periodic checks. each run is a full agent turn that can use tools and judgment, then reports back to chat.</p>
+    </div>
+    <div class="panel" style="flex:1 1 300px">
+      <h3>event hooks</h3>
+      <p>lightweight polling scripts that stay silent until a condition is true, then wake a worker agent. cheap detection, expensive action only when needed.</p>
+    </div>
+    <div class="panel" style="flex:1 1 300px">
+      <h3>subagents</h3>
+      <p>background workers spawned for a self-contained task. they run in parallel and deliver a completion handoff with the result — no polling needed.</p>
+    </div>
+    <div class="panel" style="flex:1 1 300px">
+      <h3>vm-local workflows</h3>
+      <p>javascript workflows on the agent's own machine for repeatable multi-agent orchestration — sweeps, audits, long trajectories where the plan lives in code.</p>
+    </div>
+    <div class="panel" style="flex:1 1 300px">
+      <h3>browser tasks</h3>
+      <p>delegated live-browser work (signed-in sites, forms, uploads) that runs async and hands its result back when done.</p>
+    </div>
+    <div class="panel" style="flex:1 1 300px">
+      <h3>skills</h3>
+      <p>reproducible playbooks (gmail, plaid, spotify, …) that give the agent domain-specific, reliable ways to act on connected services.</p>
+    </div>
+  </div>
+  <h3 class="sub2">the real scheduled stack (live, 2026-09-29)</h3>
+  <div class="panel">
+    <table>
+      <tr><th>job</th><th>schedule</th><th>purpose</th></tr>
+      <tr><td>daily mba lesson</td><td>06:00 daily</td><td>morning mba lesson delivery</td></tr>
+      <tr><td>daily chinese words</td><td>06:05 daily</td><td>mandarin + cantonese vocabulary</td></tr>
+      <tr><td>us markets pre-market</td><td>06:15 daily</td><td>futures, overnight movers, calendar</td></tr>
+      <tr><td>vietnam politics briefing</td><td>07:00 daily</td><td>domestic politics briefing</td></tr>
+      <tr><td>daily bible reading</td><td>07:48 daily</td><td>vietnamese bible chapter</td></tr>
+      <tr><td>vietnamese catholic news</td><td>08:00 daily</td><td>church news, saigon archdiocese priority</td></tr>
+      <tr><td>jan cox talk summary</td><td>08:48 daily</td><td>daily talk summary</td></tr>
+      <tr><td>thánh ca playlist</td><td>19:48 daily</td><td>evening music recommendation</td></tr>
+      <tr><td>hourly something new</td><td>every hour</td><td>one new fact/idea (quiet hours 21:00–06:00)</td></tr>
+      <tr><td>taptop health check</td><td>every 10 min</td><td>homelab edge health, alerts on sustained change</td></tr>
+      <tr><td>takeout export watch</td><td>every 4 h</td><td>watch gmail for the google takeout export email</td></tr>
+      <tr><td>linkedin archive watch</td><td>every 4 h</td><td>watch for the linkedin data archive ready email</td></tr>
+      <tr><td>weekly site signups</td><td>saturday 09:48</td><td>register up to three new learning sites</td></tr>
+      <tr><td>heartbeat</td><td>every 30 min</td><td>runtime keep-alive / alignment check</td></tr>
+    </table>
+    <p style="margin-top:.5rem">event hooks: none currently configured — the mechanism exists, nothing needs it yet.</p>
+  </div>
+  <div class="grid">
+    <a class="card" href="https://muse.ai" target="_blank" rel="noopener">
+      <h3>muse.ai</h3><p>official product site — web app, plans, availability.</p>
+    </a>
+    <a class="card" href="https://ai.meta.com/muse/download/" target="_blank" rel="noopener">
+      <h3>mac app download</h3><p>desktop client for muse.</p>
+    </a>
+  </div>
+
+  <h2 class="section-title">hermes</h2>
+  <div class="panel">
+    <p><b>hermes</b> is the homelab agent runner: coding and system agents that live on the user's own linux hosts instead of in a managed cloud. it exists for work that must happen close to the hardware — local codebases, docker containers, network gear, media servers.</p>
+  </div>
+  <div class="grid">
+    <div class="panel" style="flex:1 1 300px">
+      <h3>how it stays running</h3>
+      <p>each hermes instance runs as a systemd service on its host, with restart-on-failure. the machine reboots, the service comes back. no manual babysitting.</p>
+    </div>
+    <div class="panel" style="flex:1 1 300px">
+      <h3>how it works flows to it</h3>
+      <p>coding agents (aider / continue style) run on the linux boxes and point at local ollama inference nodes (mac minis) instead of cloud apis. tasks arrive as files or messages; results come back the same way.</p>
+    </div>
+    <div class="panel" style="flex:1 1 300px">
+      <h3>how it reports back</h3>
+      <p>agent-to-agent handoffs use a shared file dropbox on a vps: one side drops a task file into a tasks/ directory, the other side drops the answer into answers/. simple, durable, no realtime connection required. notifications go out over chat (mattermost); a webhook intake (n8n) is the planned trigger front door.</p>
+    </div>
+  </div>
+  <div class="grid">
+    <a class="card" href="https://docs.n8n.io" target="_blank" rel="noopener">
+      <h3>n8n docs</h3><p>webhook/event intake for triggering agents from outside.</p>
+    </a>
+    <a class="card" href="https://ollama.com" target="_blank" rel="noopener">
+      <h3>ollama</h3><p>local model inference the homelab agents run against.</p>
+    </a>
+  </div>
+
+  <h2 class="section-title">openclaw</h2>
+  <div class="panel">
+    <p><b>openclaw</b> is an open-source (mit), self-hosted personal ai assistant gateway. you run one gateway process on your own machine or a vps; it bridges the messaging apps you already use — whatsapp, telegram, discord, signal, imessage, slack, ~29 channels — to ai models (claude, gpt, gemini, or local models via ollama). started as clawdbot (nov 2025) by peter steinberger; renamed moltbot, then openclaw (jan 2026).</p>
+  </div>
+  <h3 class="sub2">how its autonomy works</h3>
+  <div class="grid">
+    <div class="panel" style="flex:1 1 300px">
+      <h3>always-on daemon</h3>
+      <p>the gateway process runs 24/7 on your hardware. message it from any connected channel and the agent answers with full tool use, persistent memory, and session context.</p>
+    </div>
+    <div class="panel" style="flex:1 1 300px">
+      <h3>scheduled + event triggers</h3>
+      <p>built-in cron jobs and webhooks let it act without being asked — proactive pings when something important happens, periodic jobs, cross-system automation.</p>
+    </div>
+    <div class="panel" style="flex:1 1 300px">
+      <h3>skills &amp; plugins</h3>
+      <p>community-built add-ons (skill.md playbooks) extend what it can do — browser control, messaging, canvas, new integrations — and it can write its own.</p>
+    </div>
+  </div>
+  <h3 class="sub2">how the three compare</h3>
+  <div class="panel">
+    <table>
+      <tr><th></th><th>muse</th><th>hermes</th><th>openclaw</th></tr>
+      <tr><td>hosting</td><td>managed by meta</td><td>your linux hosts (systemd)</td><td>your machine or vps (you run it)</td></tr>
+      <tr><td>control plane</td><td>chat apps + scheduled jobs</td><td>files, chat, webhooks</td><td>messaging apps (whatsapp, telegram, …)</td></tr>
+      <tr><td>best for</td><td>scheduled briefings, delegated research with verification</td><td>local coding / system tasks on the homelab</td><td>chat-driven quick actions, always-on assistant</td></tr>
+      <tr><td>cost model</td><td>subscription / usage</td><td>your hardware + electricity</td><td>your hardware + your model api key</td></tr>
+      <tr><td>data stays</td><td>meta's service</td><td>your lan</td><td>your hardware</td></tr>
+    </table>
+  </div>
+  <div class="grid">
+    <a class="card" href="https://openclaw.ai" target="_blank" rel="noopener">
+      <h3>openclaw.ai</h3><p>official site — what it is, install, onboarding.</p>
+    </a>
+    <a class="card" href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener">
+      <h3>github: openclaw/openclaw</h3><p>source, issues, releases, community skills.</p>
+    </a>
+    <a class="card" href="https://docs.openclaw.ai" target="_blank" rel="noopener">
+      <h3>openclaw docs</h3><p>configuration, channels, cron, browser control.</p>
+    </a>
+  </div>
+
+  <h2 class="section-title">autonomy playbook</h2>
+  <div class="panel">
+    <h3>1 · scheduled jobs <span class="k">crons</span></h3>
+    <p><b>what:</b> an agent task that fires on a clock — daily, hourly, weekly. <b>when:</b> time itself is the trigger; the work needs tools or judgment, not just a ping.</p>
+    <div class="ex"><p><b>real example:</b> the 06:15 us markets pre-market briefing and the 10-minute taptop health check — both run whether or not anyone asks.</p></div>
+  </div>
+  <div class="panel">
+    <h3>2 · event-driven hooks</h3>
+    <p><b>what:</b> a tiny polling script checks a condition and stays silent; when the condition turns true it wakes a full agent. <b>when:</b> detection is cheap but the response needs a brain.</p>
+    <div class="ex"><p><b>real example:</b> the takeout-export-watch job — polls gmail every 4 hours and only acts when the export-ready email lands.</p></div>
+  </div>
+  <div class="panel">
+    <h3>3 · persistent services <span class="k">systemd</span></h3>
+    <p><b>what:</b> a program the OS supervises and restarts — always-on listeners, collectors, local servers. <b>when:</b> the work never ends and must survive reboots.</p>
+    <div class="ex"><p><b>real example:</b> hermes agents run as systemd services on the homelab linux hosts — reboot the box, the agent comes back.</p></div>
+  </div>
+  <div class="panel">
+    <h3>4 · delegating to subagents</h3>
+    <p><b>what:</b> hand a self-contained task to a background worker; it runs in parallel and hands back the finished result. <b>when:</b> long, multi-step, or independent work that shouldn't block the main thread.</p>
+    <div class="ex"><p><b>real example:</b> research subagents built pages like this one — given a brief, they return the finished file.</p></div>
+  </div>
+  <div class="panel">
+    <h3>5 · messaging-triggered actions <span class="k">chat / webhook → agent</span></h3>
+    <p><b>what:</b> an incoming message or http webhook starts agent work. <b>when:</b> humans (or systems) trigger work from wherever they already are.</p>
+    <div class="ex"><p><b>real example:</b> n8n is the planned webhook front door; mattermost carries the notifications back out.</p></div>
+  </div>
+  <div class="panel">
+    <h3>6 · agent-to-agent handoffs <span class="k">file dropbox</span></h3>
+    <p><b>what:</b> agents that can't reach each other directly coordinate through shared files: tasks/ in, answers/ out. <b>when:</b> no realtime link, different networks, or work that must be durable and auditable.</p>
+    <div class="ex"><p><b>real example:</b> the muse↔codex dropbox on the vps — task files one way, answer files back, nothing else needed.</p></div>
+  </div>
+
+  <h2 class="section-title">making agents actually useful</h2>
+  <div class="panel blunt">
+    <p>hermes and openclaw aren't producing results right now. that's normal for self-run agents — and it's almost always one of a small set of causes. work this list in order before building anything new.</p>
+  </div>
+  <h3 class="sub2">debugging checklist — silent or broken agent</h3>
+  <div class="panel">
+    <ol>
+      <li><b>is the process actually running?</b> <span style="color:#888">systemctl status / ps / docker ps. a dead process with no restart policy is the #1 cause.</span></li>
+      <li><b>is it reachable?</b> <span style="color:#888">health endpoint responds, port is listening, tunnel/vpn is up. unreachable = nothing downstream can work.</span></li>
+      <li><b>does it have what it needs?</b> <span style="color:#888">env vars present, credentials valid and not expired, file permissions correct.</span></li>
+      <li><b>are its triggers firing?</b> <span style="color:#888">cron logs show runs, webhook deliveries show 200s. a working agent with a dead trigger looks broken.</span></li>
+      <li><b>what do the last 50 lines of logs say?</b> <span style="color:#888">journalctl -n 50 / docker logs --tail 50. read them before theorizing.</span></li>
+      <li><b>test each hop manually</b> before chaining them: trigger → agent → tool → report, one link at a time.</li>
+    </ol>
+  </div>
+  <h3 class="sub2">common failure modes and fixes</h3>
+  <div class="panel">
+    <ul>
+      <li><b>vague task contracts.</b> no done-criteria → vague results. fix: write the goal, the constraints, what "done" looks like, and where to report — in the task itself.</li>
+      <li><b>no observability.</b> if you can't see it, you can't fix it. fix: logging, a heartbeat, a status page. an agent that fails silently will stay failed.</li>
+      <li><b>chaining unreliable steps.</b> five flaky hops = guaranteed failure. fix: verify each hop manually first, then chain.</li>
+      <li><b>network / reachability blockers.</b> an agent can't act on what it can't reach. vpn, tunnel, and ssh problems are network-layer problems — solve them there first, not in the agent config.</li>
+      <li><b>credential expiry.</b> tokens die quietly. fix: rotate on a schedule and alert before expiry, not after.</li>
+    </ul>
+  </div>
+  <h3 class="sub2">known pain points — and the pattern that fixes them</h3>
+  <div class="panel">
+    <ul>
+      <li><b>homelab agents unreachable from outside the lan.</b> tunnel and vpn gaps keep breaking remote access. pattern: keep agents that need lan access running on lan hosts with lan-side triggers, and treat outside access as a bonus, not the design.</li>
+      <li><b>browser signups stall on bot-checks.</b> fighting bot detection is a losing game for an agent. pattern: use chat/messaging as the control plane — let the human clear the one human step, and let the agent do everything before and after it.</li>
+    </ul>
+  </div>
+  <h3 class="sub2">the one reliable job rule</h3>
+  <div class="panel blunt">
+    <p>get <b>one</b> scheduled task producing a <b>visible result</b> before building any multi-agent pipeline. add a second only after the first runs green for a week. pipelines built on unproven jobs are just unproven jobs with extra steps.</p>
+  </div>
+  <h3 class="sub2">choosing the right agent for the job</h3>
+  <div class="panel">
+    <table>
+      <tr><th>job type</th><th>use</th><th>why</th></tr>
+      <tr><td>scheduled briefings, delegated research</td><td>muse</td><td>managed scheduling, verification, delivery to chat</td></tr>
+      <tr><td>local coding / system tasks</td><td>hermes-style homelab agents</td><td>runs where the code and hardware are</td></tr>
+      <tr><td>chat-driven quick actions</td><td>openclaw-style always-on assistant</td><td>message it from anywhere, it acts immediately</td></tr>
+    </table>
+  </div>
+
+  <h2 class="section-title">resources</h2>
+  <div class="grid">
+    <a class="card" href="https://openclaw.ai" target="_blank" rel="noopener">
+      <h3>openclaw.ai</h3><p>official site — install and onboarding.</p>
+    
+    </a>
+    <a class="card" href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener">
+      <h3>github: openclaw/openclaw</h3><p>source, releases, issues, community skills.</p>
+    </a>
+    <a class="card" href="https://docs.openclaw.ai" target="_blank" rel="noopener">
+      <h3>openclaw docs</h3><p>channels, cron, browser control, config reference.</p>
+    </a>
+    <a class="card" href="https://muse.ai" target="_blank" rel="noopener">
+      <h3>muse.ai</h3><p>meta's personal ai agent — web app and plans.</p>
+    </a>
+    <a class="card" href="https://docs.n8n.io" target="_blank" rel="noopener">
+      <h3>n8n docs</h3><p>webhooks and workflow automation for agent triggers.</p>
+    </a>
+    <a class="card" href="https://ollama.com" target="_blank" rel="noopener">
+      <h3>ollama</h3><p>local model inference for self-hosted agents.</p>
+    </a>
+  </div>
+
+  <footer>
+    researched and built 2026-09-29 &mdash; cron list is the live scheduled stack as of that date.<br>
+    <a href="index.html">&larr; back to alan's sites</a>
+  </footer>
+</div>
+</body></html>
+
+  </html>
