@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity &amp; How to Profit From It</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #0f1115; color: #e8e8e8; min-height: 100vh; padding: 2.5rem 1.5rem; }
+  .wrap { max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 1.6rem; text-align: center; }
+  h1 span { color: #ff6b6b; }
+  h2.section-title { font-size: 1.05rem; color: #ff6b6b; margin: 2.2rem 0 .9rem; text-transform: lowercase; }
+  .sub { text-align: center; color: #888; margin: .5rem 0 1.8rem; font-size: .9rem; }
+  .sub a { color: #ff6b6b; }
+  p { font-size: .9rem; line-height: 1.65; color: #c9c9c9; margin-bottom: .9rem; }
+  p strong { color: #e8e8e8; }
+  .grid { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: .5rem; }
+  .card { background: #1a1d24; border: 1px solid #2a2e38; border-radius: 8px;
+    padding: .6rem .75rem; min-width: 150px; flex: 1 1 200px; }
+  .card h3 { font-size: .82rem; font-weight: 600; }
+  .card h3 .tag { color: #ff6b6b; font-weight: 400; font-size: .7rem; }
+  .card p { margin-top: .25rem; color: #888; font-size: .74rem; margin-bottom: 0; }
+  .method { background: #1a1d24; border: 1px solid #2a2e38; border-radius: 8px;
+    padding: .8rem 1rem; margin-bottom: .6rem; }
+  .method h3 { font-size: .88rem; font-weight: 600; margin-bottom: .3rem; }
+  .effort { display: inline-block; font-size: .68rem; border-radius: 4px; padding: .1rem .45rem;
+    margin-left: .5rem; vertical-align: middle; }
+  .effort.low { background: #12331f; color: #7ddf9a; }
+  .effort.med { background: #3a2f10; color: #f0c96b; }
+  .effort.high { background: #3d1a1a; color: #f08a8a; }
+  .method p { font-size: .8rem; margin-bottom: 0; }
+  ul { margin: .4rem 0 .9rem 1.2rem; font-size: .85rem; color: #c9c9c9; line-height: 1.7; }
+  li::marker { color: #ff6b6b; }
+  .warn { background: #2a1414; border: 1px solid #5a2323; border-radius: 8px;
+    padding: .9rem 1.1rem; margin: 1.5rem 0; font-size: .82rem; color: #e8a0a0; line-height: 1.6; }
+  footer { margin: 3rem 0 1rem; text-align: center; color: #555; font-size: .78rem; }
+  footer a { color: #ff6b6b; }
+  .disc { text-align: center; color: #666; font-size: .72rem; margin-top: 2rem; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>cybersecurity <span>&amp;</span> how to profit from it</h1>
+  <div class="sub">a plain-english map &middot; the domains &middot; the money paths &middot; <a href="index.html">&larr; back to Analyst THP</a></div>
+
+  <h2 class="section-title">what cybersecurity is</h2>
+  <p>Cybersecurity is the practice of <strong>protecting systems, networks, and data from attack, theft, and disruption</strong>. Every company with a computer is a potential target, which makes it one of the few fields where demand has outrun supply for over a decade. It splits roughly into <strong>offense</strong> (finding weaknesses before criminals do), <strong>defense</strong> (detecting and stopping attacks in progress), and <strong>governance</strong> (making sure the organization does security systematically).</p>
+  <p>You don't need a computer-science degree to enter. Many practitioners come from IT support, networking, development, or data &mdash; and <strong>hands-on labs count more than credentials</strong> early on.</p>
+
+  <h2 class="section-title">the field, piece by piece</h2>
+  <div class="grid">
+    <div class="card"><h3>network security <span class="tag">&middot; blue</span></h3><p>Firewalls, segmentation, VPNs, intrusion detection. Keeping the pipes clean.</p></div>
+    <div class="card"><h3>appsec <span class="tag">&middot; blue/red</span></h3><p>Finding flaws in software: OWASP Top 10, code review, web exploitation.</p></div>
+    <div class="card"><h3>pentesting / red team <span class="tag">&middot; red</span></h3><p>Authorized simulated attacks against companies that hire you to break in.</p></div>
+    <div class="card"><h3>SOC / detection <span class="tag">&middot; blue</span></h3><p>Security operations centers: monitoring alerts, triaging incidents around the clock.</p></div>
+    <div class="card"><h3>DFIR <span class="tag">&middot; blue</span></h3><p>Digital forensics &amp; incident response: what happened, how bad, how to recover.</p></div>
+    <div class="card"><h3>identity / IAM <span class="tag">&middot; blue</span></h3><p>Who can access what: SSO, MFA, privileged accounts, zero-trust architecture.</p></div>
+    <div class="card"><h3>cloud security <span class="tag">&middot; blue</span></h3><p>Securing AWS/GCP/Azure configs, containers, and CI/CD pipelines.</p></div>
+    <div class="card"><h3>GRC <span class="tag">&middot; governance</span></h3><p>Governance, risk, compliance: audits, frameworks (NIST, ISO 27001), policy.</p></div>
+  </div>
+
+  <h2 class="section-title">how people profit from it</h2>
+
+  <div class="method"><h3>salaried security roles <span class="effort low">steady</span></h3>
+    <p>The default path: SOC analyst &rarr; security engineer &rarr; architect. Entry SOC roles start modest; experienced engineers and architects earn well into six figures. Employers pay a premium for people who can actually investigate, not just hold certs.</p></div>
+
+  <div class="method"><h3>penetration testing <span class="effort med">skilled</span></h3>
+    <p>Get paid to legally break into systems and write up how you did it. Consultancies and in-house red teams hire pentesters; freelancers charge per engagement. Requires deep hands-on skill &mdash; proven in labs and CTFs, not classrooms.</p></div>
+
+  <div class="method"><h3>bug bounties <span class="effort med">variable</span></h3>
+    <p>Platforms like HackerOne and Bugcrowd pay for valid vulnerabilities found in participating companies. Top hunters earn a living; most earn supplemental income. Income is spiky &mdash; treat it as upside, not salary.</p></div>
+
+  <div class="method"><h3>consulting / vCISO <span class="effort high">experienced</span></h3>
+    <p>Advise companies on security programs, run audits, or serve as a fractional CISO for small firms that can't hire one full-time. Highest hourly rates in the field, but you sell trust &mdash; reputation is everything.</p></div>
+
+  <div class="method"><h3>security content &amp; training <span class="effort med">builder</span></h3>
+    <p>Write-ups, courses, YouTube labs, and newsletters earn through ads, sponsorships, and course sales. The field is hungry for teachers who explain clearly &mdash; practitioners with communication skills are rare.</p></div>
+
+  <div class="method"><h3>building security tools <span class="effort high">builder</span></h3>
+    <p>Open-source tools (scanners, detection rules, homelab utilities) build reputation that converts into job offers, consulting, or SaaS products. Many security startups began as a side project.</p></div>
+
+  <div class="method"><h3>certifications as leverage <span class="effort low">credential</span></h3>
+    <p>Certs don't teach the job, but they open doors: Security+ for entry, then OSCP for pentesting or CISSP for management tracks. Use them to get past HR filters, then let skills do the talking.</p></div>
+
+  <h2 class="section-title">honest notes</h2>
+  <ul>
+    <li><strong>Burnout is real</strong> &mdash; SOC shift work and incident response can mean nights, weekends, and alert fatigue. Choose your lane deliberately.</li>
+    <li><strong>The cert treadmill never stops</strong> &mdash; the field moves fast; continuous learning is the job, not a phase.</li>
+    <li><strong>Bounty income is lumpy</strong> &mdash; great side income, unreliable primary income for most.</li>
+    <li><strong>Ethics are non-negotiable</strong> &mdash; unauthorized access is a crime everywhere. The line between pentester and criminal is written permission.</li>
+    <li><strong>Generalists enter easier</strong> &mdash; networking, Linux, and scripting fundamentals unlock every specialty.</li>
+  </ul>
+
+  <h2 class="section-title">getting started</h2>
+  <ul>
+    <li>Build the base: basic networking (TCP/IP, DNS), Linux command line, and one scripting language (Python or Bash).</li>
+    <li>Train hands-on: TryHackMe for guided paths, HackTheBox for real machines, PortSwigger's Web Security Academy for web app flaws &mdash; all have free tiers.</li>
+    <li>Play CTFs (capture-the-flag competitions) to practice under pressure and meet the community.</li>
+    <li>Set up a home lab: a virtualized attack network teaches more than any video course.</li>
+    <li>Document everything publicly &mdash; write-ups of boxes you've solved are your portfolio.</li>
+    <li>Pick one lane (blue or red) to go deep, after sampling both.</li>
+  </ul>
+
+  <div class="warn"><strong>The realistic path:</strong> 6&ndash;12 months of consistent lab time takes a motivated beginner to employable junior level. The people who make it aren't the most credentialed &mdash; they're the ones who kept breaking things in the lab every week.</div>
+
+  <p class="disc">Educational overview only &mdash; not career or financial advice. Salaries and demand vary by region and market conditions. Always obtain written authorization before testing any system you don't own.</p>
+
+  <footer>links hub &middot; <a href="index.html">Analyst THP</a></footer>
+</div>
+</body>
+</html>
