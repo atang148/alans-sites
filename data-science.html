@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Science &amp; How to Profit From It</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #0f1115; color: #e8e8e8; min-height: 100vh; padding: 2.5rem 1.5rem; }
+  .wrap { max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 1.6rem; text-align: center; }
+  h1 span { color: #7ddf9a; }
+  h2.section-title { font-size: 1.05rem; color: #7ddf9a; margin: 2.2rem 0 .9rem; text-transform: lowercase; }
+  .sub { text-align: center; color: #888; margin: .5rem 0 1.8rem; font-size: .9rem; }
+  .sub a { color: #7ddf9a; }
+  p { font-size: .9rem; line-height: 1.65; color: #c9c9c9; margin-bottom: .9rem; }
+  p strong { color: #e8e8e8; }
+  .grid { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: .5rem; }
+  .card { background: #1a1d24; border: 1px solid #2a2e38; border-radius: 8px;
+    padding: .6rem .75rem; min-width: 150px; flex: 1 1 200px; }
+  .card h3 { font-size: .82rem; font-weight: 600; }
+  .card h3 .tag { color: #7ddf9a; font-weight: 400; font-size: .7rem; }
+  .card p { margin-top: .25rem; color: #888; font-size: .74rem; margin-bottom: 0; }
+  .method { background: #1a1d24; border: 1px solid #2a2e38; border-radius: 8px;
+    padding: .8rem 1rem; margin-bottom: .6rem; }
+  .method h3 { font-size: .88rem; font-weight: 600; margin-bottom: .3rem; }
+  .effort { display: inline-block; font-size: .68rem; border-radius: 4px; padding: .1rem .45rem;
+    margin-left: .5rem; vertical-align: middle; }
+  .effort.low { background: #12331f; color: #7ddf9a; }
+  .effort.med { background: #3a2f10; color: #f0c96b; }
+  .effort.high { background: #1c2f4a; color: #8ab8f0; }
+  .method p { font-size: .8rem; margin-bottom: 0; }
+  ul { margin: .4rem 0 .9rem 1.2rem; font-size: .85rem; color: #c9c9c9; line-height: 1.7; }
+  li::marker { color: #7ddf9a; }
+  .warn { background: #10231a; border: 1px solid #1f5a33; border-radius: 8px;
+    padding: .9rem 1.1rem; margin: 1.5rem 0; font-size: .82rem; color: #a8e0b8; line-height: 1.6; }
+  footer { margin: 3rem 0 1rem; text-align: center; color: #555; font-size: .78rem; }
+  footer a { color: #7ddf9a; }
+  .disc { text-align: center; color: #666; font-size: .72rem; margin-top: 2rem; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>data science <span>&amp;</span> how to profit from it</h1>
+  <div class="sub">a plain-english map &middot; the disciplines &middot; the money paths &middot; <a href="index.html">&larr; back to Analyst THP</a></div>
+
+  <h2 class="section-title">what data science is</h2>
+  <p>Data science is the practice of <strong>turning raw data into decisions</strong>. It spans the full journey: collecting data, cleaning it, analyzing it, and building models that predict or automate. Every industry now runs on this pipeline &mdash; healthcare, finance, retail, logistics &mdash; which is why people who can do it well stay employed.</p>
+  <p>The dirty secret: <strong>most of the job is data wrangling, not modeling</strong>. The practitioners who thrive are the ones comfortable with messy, real-world data &mdash; exactly the skill working analysts already have.</p>
+
+  <h2 class="section-title">the field, piece by piece</h2>
+  <div class="grid">
+    <div class="card"><h3>data engineering <span class="tag">&middot; pipelines</span></h3><p>Moving data reliably: ETL/ELT, warehouses, Spark, Databricks, orchestration.</p></div>
+    <div class="card"><h3>analytics / BI <span class="tag">&middot; insight</span></h3><p>Dashboards, KPI reporting, ad-hoc analysis. Where most analysts live.</p></div>
+    <div class="card"><h3>machine learning <span class="tag">&middot; prediction</span></h3><p>Training models: regression, classification, forecasting, recommendations.</p></div>
+    <div class="card"><h3>MLOps <span class="tag">&middot; production</span></h3><p>Deploying and monitoring models so they keep working after the notebook closes.</p></div>
+    <div class="card"><h3>data visualization <span class="tag">&middot; story</span></h3><p>Turning findings into charts and narratives decision-makers act on.</p></div>
+    <div class="card"><h3>statistics <span class="tag">&middot; rigor</span></h3><p>Experimental design, significance testing, knowing when a result is real.</p></div>
+    <div class="card"><h3>data governance <span class="tag">&middot; trust</span></h3><p>Quality, lineage, privacy, compliance &mdash; especially critical in healthcare.</p></div>
+    <div class="card"><h3>AI / LLMs <span class="tag">&middot; new</span></h3><p>Applying large language models: RAG pipelines, agents, evaluation.</p></div>
+  </div>
+
+  <h2 class="section-title">how people profit from it</h2>
+
+  <div class="method"><h3>salaried roles, climbing the ladder <span class="effort low">steady</span></h3>
+    <p>The standard path: data analyst &rarr; senior analyst &rarr; data scientist &rarr; ML engineer or analytics manager. Each step up pays meaningfully more. <strong>Domain expertise is the multiplier</strong> &mdash; a healthcare analyst who learns modeling is worth more than a generic bootcamp graduate.</p></div>
+
+  <div class="method"><h3>freelance analytics &amp; consulting <span class="effort med">skilled</span></h3>
+    <p>Small businesses drown in data they can't use. Freelancers who build dashboards, automate reports, or clean up data pipelines charge healthy project rates. Your existing analyst toolkit is already the product.</p></div>
+
+  <div class="method"><h3>building data products <span class="effort high">builder</span></h3>
+    <p>Package your knowledge: a niche dashboard template, an automated reporting tool, a paid newsletter with industry benchmarks. Data products scale &mdash; build once, sell many times.</p></div>
+
+  <div class="method"><h3>kaggle competitions <span class="effort med">competitive</span></h3>
+    <p>Win prize money and, more valuably, a public track record. Grandmaster status opens doors to top employers. Treat competitions as training with upside, not income.</p></div>
+
+  <div class="method"><h3>teaching &amp; content <span class="effort med">builder</span></h3>
+    <p>Courses, tutorials, and writing about real-world data work earn through platforms, sponsorships, and consulting inbound. Practitioners who teach what they actually do stand out from theory-only instructors.</p></div>
+
+  <div class="method"><h3>internal leverage <span class="effort low">employed</span></h3>
+    <p>The most underrated path: use new skills to become visibly more valuable at your current job &mdash; automate the painful monthly process, ship the dashboard everyone uses &mdash; then negotiate the raise or promotion with receipts.</p></div>
+
+  <h2 class="section-title">honest notes</h2>
+  <ul>
+    <li><strong>Portfolio beats credentials</strong> &mdash; hiring managers want to see messy real projects, not certificates.</li>
+    <li><strong>80% of the work is cleaning data</strong> &mdash; if you don't enjoy the wrangling, you won't enjoy the job.</li>
+    <li><strong>Tools change; fundamentals don't</strong> &mdash; SQL, statistics, and clear thinking outlast every framework.</li>
+    <li><strong>AI raises the bar</strong> &mdash; routine analysis gets automated; judgment, domain knowledge, and communication become the premium skills.</li>
+    <li><strong>Specialists earn more than generalists</strong> &mdash; pick an industry you know and go deep.</li>
+  </ul>
+
+  <h2 class="section-title">getting started</h2>
+  <ul>
+    <li>Lock in SQL &mdash; it's still the most-used data skill and the fastest to monetize.</li>
+    <li>Add Python (pandas) alongside whatever you already use; translate one real workflow to prove it.</li>
+    <li>Learn enough statistics to avoid fooling yourself: distributions, sampling, regression basics.</li>
+    <li>Build one end-to-end portfolio project with real, messy data &mdash; document every decision.</li>
+    <li>Practice on Kaggle datasets, then graduate to competitions.</li>
+    <li>Learn one cloud data platform (Databricks, Snowflake, or BigQuery free tiers).</li>
+    <li>Write about what you build &mdash; the project plus the write-up is worth double.</li>
+  </ul>
+
+  <div class="warn"><strong>The realistic path:</strong> working analysts are already halfway there &mdash; the gap is Python, a bit of statistics, and one deployed project. Six months of focused evenings closes it. The differentiator at every level is the same: <em>can you take ambiguous data and produce a decision someone trusts?</em></div>
+
+  <p class="disc">Educational overview only &mdash; not career or financial advice. Salaries and demand vary by region and market conditions.</p>
+
+  <footer>links hub &middot; <a href="index.html">Analyst THP</a></footer>
+</div>
+</body>
+</html>
