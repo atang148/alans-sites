@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jan Cox in One Page — Sketchnote</title>
+<style>
+  :root{
+    --paper:#f7f0dc; --ink:#26304a; --card:#fffdf4;
+    --red:#c0392b; --blue:#2e5f9e; --gold:#d99a17;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--paper);
+    background-image:radial-gradient(#e7dcbc 1px, transparent 1.4px);
+    background-size:26px 26px;
+    color:var(--ink);
+    font-family:"Segoe Print","Bradley Hand","Comic Sans MS","Chalkboard SE",cursive;
+    padding:28px 16px 40px;
+  }
+  .page{max-width:1060px; margin:0 auto;}
+  .wob{border:2.5px solid var(--ink); border-radius:255px 18px 225px 18px/18px 225px 18px 255px; background:var(--card);}
+  .wob2{border:2.5px solid var(--ink); border-radius:18px 240px 18px 200px/200px 18px 240px 18px; background:var(--card);}
+  header{text-align:center; margin-bottom:22px;}
+  header h1{font-size:clamp(30px,6vw,52px); letter-spacing:1px; transform:rotate(-1deg);}
+  header h1 .accent{color:var(--red);}
+  .squig{display:block; margin:6px auto 10px;}
+  header p{font-size:clamp(15px,2.6vw,20px); transform:rotate(.4deg);}
+  header p b{color:var(--blue);}
+  .strip{
+    display:flex; flex-wrap:wrap; gap:12px; justify-content:center; align-items:stretch;
+    padding:14px 18px; margin-bottom:26px; text-align:center;
+  }
+  .strip .n{font-size:30px; line-height:1;}
+  .strip .lbl{font-size:14px;}
+  .strip .dot{font-size:26px; align-self:center; color:var(--gold);}
+  h2.sec{font-size:clamp(22px,4vw,30px); margin:26px 0 14px; transform:rotate(-.6deg);}
+  h2.sec .u{border-bottom:4px wavy var(--gold); padding-bottom:2px;}
+  .sets{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px;}
+  .set{padding:16px 18px 14px;}
+  .set:nth-child(1){transform:rotate(-.7deg);}
+  .set:nth-child(2){transform:rotate(.5deg);}
+  .set:nth-child(3){transform:rotate(-.4deg);}
+  .set h3{font-size:21px; margin-bottom:4px;}
+  .set h3 .cnt{color:#fff; font-size:16px; padding:1px 10px; border-radius:20px; vertical-align:middle;}
+  .set .for{font-size:15.5px; line-height:1.45;}
+  .set .ex{font-size:14px; margin-top:8px; padding:8px 10px; border:2px dashed var(--ink); border-radius:14px 60px 14px 55px/55px 14px 60px 14px; background:#fdf6df;}
+  .set svg{float:right; margin:2px 0 4px 8px;}
+  .flow{
+    display:flex; flex-wrap:wrap; align-items:stretch; justify-content:center; gap:6px;
+    padding:20px 14px;
+  }
+  .step{flex:1 1 180px; max-width:230px; padding:12px 13px; text-align:center;}
+  .step:nth-child(odd){transform:rotate(-1deg);}
+  .step:nth-child(even){transform:rotate(.8deg);}
+  .step .no{
+    display:inline-block; width:30px; height:30px; line-height:28px; border:2.5px solid var(--ink);
+    border-radius:50% 46% 55% 45%/48% 55% 45% 52%; background:var(--gold); color:#fff; font-size:17px; margin-bottom:6px;
+  }
+  .step h4{font-size:17px; margin-bottom:4px;}
+  .step p{font-size:13.5px; line-height:1.45;}
+  .step p q{color:var(--blue);}
+  .arrow{align-self:center; flex:0 0 auto;}
+  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px;}
+  .ccard{padding:14px 17px 12px; position:relative;}
+  .ccard:nth-child(3n+1){transform:rotate(-.8deg);}
+  .ccard:nth-child(3n+2){transform:rotate(.6deg);}
+  .ccard:nth-child(3n){transform:rotate(-.3deg);}
+  .ccard h3{font-size:20px; margin-bottom:5px;}
+  .ccard h3 svg{vertical-align:-4px; margin-right:7px;}
+  .ccard .def{font-size:15.5px; line-height:1.5;}
+  .ccard .def q{color:var(--ink);}
+  .ccard .src{font-size:12.5px; color:#6b6f5e; margin-top:6px; text-align:right;}
+  footer{
+    margin-top:28px; padding:16px 20px; text-align:center; font-size:15px; line-height:1.55;
+    border:3px dashed var(--ink); border-radius:20px 120px 20px 110px/110px 20px 120px 20px; background:#fdf6df;
+  }
+  footer b{color:var(--red);}
+  .tiny{font-size:12.5px; color:#6b6f5e; margin-top:8px;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <h1>JAN COX <span class="accent">in one page</span></h1>
+    <svg class="squig" width="320" height="14" viewBox="0 0 320 14" aria-hidden="true">
+      <path d="M4 8 Q 24 2, 44 8 T 84 8 T 124 8 T 164 8 T 204 8 T 244 8 T 284 8 T 316 8" fill="none" stroke="#d99a17" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+    <p>one teacher, one system — <b>the machinery of ordinary life</b>, named out loud</p>
+  </header>
+
+  <div class="strip wob">
+    <div><div class="n">191</div><div class="lbl">glossary terms</div></div>
+    <div class="dot">✶</div>
+    <div><div class="n">157</div><div class="lbl">Code maxims</div></div>
+    <div class="dot">✶</div>
+    <div><div class="n">99</div><div class="lbl">acronyms</div></div>
+    <div class="dot">✶</div>
+    <div><div class="n">3</div><div class="lbl">sets of paintings</div></div>
+  </div>
+
+  <h2 class="sec">✎ <span class="u">the three sets</span> — the whole teaching, in three drawers</h2>
+  <div class="sets">
+
+    <div class="set wob">
+      <svg width="46" height="46" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 6 C 16 3, 22 4, 24 7 C 26 4, 32 3, 38 6 L 38 40 C 32 37, 26 38, 24 41 C 22 38, 16 37, 10 40 Z M24 7 L24 41" fill="none" stroke="#2e5f9e" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 13 C 17 12, 20 12, 21 13 M14 20 C 17 19, 20 19, 21 20 M27 13 C 30 12, 33 12, 34 13 M27 20 C 30 19, 33 19, 34 20" fill="none" stroke="#2e5f9e" stroke-width="2" stroke-linecap="round"/></svg>
+      <h3>The Glossary <span class="cnt" style="background:#2e5f9e">191 terms</span></h3>
+      <p class="for"><b>The vocabulary.</b> Every term names a piece of the machinery — The Act, the City, the circuits, the Aim — so what runs a man automatically can be seen, and talked about, precisely.</p>
+    </div>
+
+    <div class="set wob2">
+      <svg width="46" height="46" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 L24 34 M10 12 L38 12 M24 12 L10 14 M24 12 L38 14" fill="none" stroke="#c0392b" stroke-width="2.6" stroke-linecap="round"/><path d="M5 24 L10 14 L15 24 C 13 27, 7 27, 5 24 Z M33 24 L38 14 L43 24 C 41 27, 35 27, 33 24 Z" fill="none" stroke="#c0392b" stroke-width="2.4" stroke-linejoin="round"/><path d="M16 40 C 21 38, 27 38, 32 40 M24 34 L24 39" fill="none" stroke="#c0392b" stroke-width="2.6" stroke-linecap="round"/></svg>
+      <h3>The Code of Conduct <span class="cnt" style="background:#c0392b">157 maxims</span></h3>
+      <p class="for"><b>The practice.</b> The Revolutionist's code — how the certain man actually behaves, day to day, while the machinery runs everyone else. Short rules, lived, not debated.</p>
+      <p class="ex">e.g. “Don't steal or be deceitful.” · “Stay out of debt.” · “You should have no interest in other people's personal lives.”</p>
+    </div>
+
+    <div class="set wob">
+      <svg width="46" height="46" viewBox="0 0 48 48" aria-hidden="true"><path d="M7 34 L15 12 L23 34 M10.5 26 L19.5 26" fill="none" stroke="#d99a17" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M29 34 L29 12 L37 12 C 42 12, 42 21, 37 21 L29 21 M37 21 L43 34" fill="none" stroke="#d99a17" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3>The Acronyms <span class="cnt" style="background:#d99a17">99</span></h3>
+      <p class="for"><b>The shorthand.</b> The system compressed into letter-codes — pocket reminders of whole ideas, each one unpacking into a glossary definition when you stop and expand it.</p>
+    </div>
+
+  </div>
+
+  <h2 class="sec">✎ <span class="u">the system at a glance</span></h2>
+  <div class="flow wob2">
+
+    <div class="step">
+      <span class="no">1</span>
+      <svg width="42" height="42" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="8.5" fill="none" stroke="#26304a" stroke-width="2.6"/><path d="M24 8 L24 14 M24 34 L24 40 M8 24 L14 24 M34 24 L40 24 M13 13 L17.5 17.5 M30.5 30.5 L35 35 M35 13 L30.5 17.5 M17.5 30.5 L13 35" stroke="#26304a" stroke-width="3.4" stroke-linecap="round"/></svg>
+      <h4>Man is mechanical</h4>
+      <p>Asleep in <b>The Act</b>: under normal conditions man does nothing — <q>everything is done through him, a cog in a living machine.</q></p>
+    </div>
+
+    <svg class="arrow" width="40" height="24" viewBox="0 0 40 24" aria-hidden="true"><path d="M3 13 C 12 8, 24 18, 33 11 M33 11 L27 8 M33 11 L28 17" fill="none" stroke="#c0392b" stroke-width="3" stroke-linecap="round"/></svg>
+
+    <div class="step">
+      <span class="no">2</span>
+      <svg width="42" height="42" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 C 28 5, 28 11, 24 11 C 20 11, 20 5, 24 5 Z M18 20 C 18 14, 30 14, 30 20 L31 30 L17 30 Z M12 40 C 17 36, 31 36, 36 40 L36 43 L12 43 Z" fill="none" stroke="#26304a" stroke-width="2.6" stroke-linejoin="round"/></svg>
+      <h4>Life uses man</h4>
+      <p><q>Life holds all the pieces</q> — men are its cells and pawns, moved forward toward Life's own aim of constant expansion.</p>
+    </div>
+
+    <svg class="arrow" width="40" height="24" viewBox="0 0 40 24" aria-hidden="true"><path d="M3 11 C 12 17, 24 7, 33 13 M33 13 L27 9 M33 13 L29 19" fill="none" stroke="#c0392b" stroke-width="3" stroke-linecap="round"/></svg>
+
+    <div class="step">
+      <span class="no">3</span>
+      <svg width="42" height="42" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 24 C 12 12, 34 12, 44 24 C 34 36, 12 36, 4 24 Z" fill="none" stroke="#26304a" stroke-width="2.6" stroke-linejoin="round"/><circle cx="24" cy="24" r="7" fill="none" stroke="#2e5f9e" stroke-width="2.6"/><circle cx="24" cy="24" r="2.4" fill="#2e5f9e"/></svg>
+      <h4>Seeing it: neuralizing</h4>
+      <p>The few begin to watch the machine — thinking about a thing other than native consciousness would, instead of being thought <i>by</i> it.</p>
+    </div>
+
+    <svg class="arrow" width="40" height="24" viewBox="0 0 40 24" aria-hidden="true"><path d="M3 13 C 12 8, 24 18, 33 11 M33 11 L27 8 M33 11 L28 17" fill="none" stroke="#c0392b" stroke-width="3" stroke-linecap="round"/></svg>
+
+    <div class="step">
+      <span class="no">4</span>
+      <svg width="42" height="42" viewBox="0 0 48 48" aria-hidden="true"><path d="M13 7 C 10 15, 12 22, 9 29 C 7 34, 9 39, 13 41 M33 9 C 36 16, 33 23, 37 29 C 40 34, 38 39, 34 41" fill="none" stroke="#26304a" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="1 7"/></svg>
+      <h4>The Code as practice</h4>
+      <p>The Aim, lived: 157 maxims turn seeing into conduct — doing and saying what you are not by temperament inclined to do.</p>
+    </div>
+
+  </div>
+
+  <h2 class="sec">✎ <span class="u">six key concepts</span> — in the glossary's own words</h2>
+  <div class="cards">
+
+    <div class="ccard wob">
+      <h3><svg width="26" height="26" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 8 C 8 20, 8 30, 10 42 M38 8 C 40 20, 40 30, 38 42 M10 14 C 19 18, 29 18, 38 14 M10 36 C 19 32, 29 32, 38 36" fill="none" stroke="#c0392b" stroke-width="2.6" stroke-linecap="round"/><circle cx="19" cy="25" r="2.2" fill="#c0392b"/><circle cx="29" cy="25" r="2.2" fill="#c0392b"/><path d="M19 32 C 22 30, 26 30, 29 32" fill="none" stroke="#c0392b" stroke-width="2.2" stroke-linecap="round"/></svg>The ACT</h3>
+      <p class="def">Ordinary life as a staged play: <q>no one knows what thought they will next have, yet the collective life of humanity proceeds as though thoroughly scripted.</q></p>
+      <p class="src">— glossary definition</p>
+    </div>
+
+    <div class="ccard wob2">
+      <h3><svg width="26" height="26" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="8" fill="none" stroke="#26304a" stroke-width="2.6"/><path d="M24 9 L24 15 M24 33 L24 39 M9 24 L15 24 M33 24 L39 24 M14 14 L18 18 M30 30 L34 34 M34 14 L30 18 M18 30 L14 34" stroke="#26304a" stroke-width="3.2" stroke-linecap="round"/></svg>MECHANICAL</h3>
+      <p class="def">The ordinary state itself: <q>that which is mechanical is that which is ordinary</q> — everything done <i>through</i> a man, not by him.</p>
+      <p class="src">— glossary definition</p>
+    </div>
+
+    <div class="ccard wob">
+      <h3><svg width="26" height="26" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 42 L6 22 L14 22 L14 42 M14 42 L14 14 L24 14 L24 42 M24 42 L24 26 L33 26 L33 42 M33 42 L33 18 L42 18 L42 42 M4 42 L44 42" fill="none" stroke="#2e5f9e" stroke-width="2.6" stroke-linejoin="round"/><path d="M18 21 L21 21 M18 28 L21 28 M37 25 L39 25" stroke="#2e5f9e" stroke-width="2.2" stroke-linecap="round"/></svg>The CITY</h3>
+      <p class="def">The inner landscape of ordinary life, where the pail one is given is never filled — and where <q>people will do anything except what works.</q></p>
+      <p class="src">— glossary definition</p>
+    </div>
+
+    <div class="ccard wob2">
+      <h3><svg width="26" height="26" viewBox="0 0 48 48" aria-hidden="true"><path d="M7 10 L17 5 L31 10 L41 5 L41 37 L31 42 L17 37 L7 42 Z M17 5 L17 37 M31 10 L31 42" fill="none" stroke="#d99a17" stroke-width="2.6" stroke-linejoin="round"/><path d="M11 16 C 14 15, 15 16, 17 15 M21 30 C 24 29, 27 30, 29 29" fill="none" stroke="#d99a17" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 3"/></svg>MAPS</h3>
+      <p class="def">Every description of the teaching — this page included: <q>two dimensional descriptions of a three-dimensional reality; temporary, ever-changing, ultimately disposable.</q></p>
+      <p class="src">— glossary definition</p>
+    </div>
+
+    <div class="ccard wob">
+      <h3><svg width="26" height="26" viewBox="0 0 48 48" aria-hidden="true"><path d="M14 38 C 8 32, 8 20, 15 14 C 17 8, 26 5, 31 10 C 39 10, 42 19, 38 24 C 41 30, 36 38, 30 37 C 26 41, 18 42, 14 38 Z" fill="none" stroke="#2e5f9e" stroke-width="2.6" stroke-linejoin="round"/><path d="M17 24 C 21 20, 25 26, 29 21 M20 31 C 24 28, 27 32, 31 29" fill="none" stroke="#2e5f9e" stroke-width="2.1" stroke-linecap="round"/></svg>NEURALIZING</h3>
+      <p class="def">The core exercise: thinking about something in a manner other than your native consciousness normally would — <q>floating a thought above the grasp of either-true-or-false.</q></p>
+      <p class="src">— glossary definition</p>
+    </div>
+
+    <div class="ccard wob2">
+      <h3><svg width="26" height="26" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="16" fill="none" stroke="#c0392b" stroke-width="2.6"/><circle cx="24" cy="24" r="9.5" fill="none" stroke="#c0392b" stroke-width="2.2"/><circle cx="24" cy="24" r="3" fill="#c0392b"/><path d="M24 3 L24 10 M24 38 L24 45 M3 24 L10 24 M38 24 L45 24" stroke="#c0392b" stroke-width="2.6" stroke-linecap="round"/></svg>The AIM</h3>
+      <p class="def">What the whole activity is for: <q>to make consciousness conscious of itself and its heritage</q> — and to entertain only thoughts original with your own consciousness.</p>
+      <p class="src">— glossary definition</p>
+    </div>
+
+  </div>
+
+  <footer>
+    🎨 The paintings live in <b>three collections — Glossary · Code of Conduct · Acronyms</b> — every set complete, <b>all variations preserved</b>.<br>
+    🎧 Hear the source: <b>34 Jan Cox Talks shows · 3,311 talks</b> at <b>jancox.com/podcast-feeds</b>
+    <div class="tiny">Definitions quoted from the Jan Cox glossary &amp; Code of Conduct · sketchnote summary — itself just a map (see “MAPS,” above)</div>
+  </footer>
+
+</div>
+</body>
+</html>

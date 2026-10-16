@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jan Cox — Learning</title>
+<style>
+  * { box-sizing: border-box; }
+  body { background: #111; color: #eee; font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 1.2rem; }
+  .wrap { max-width: 1000px; margin: 0 auto; }
+  h1 { font-size: 1.3rem; margin: 0 0 .2rem; }
+  .sub { color: #888; font-size: .82rem; margin-bottom: 1.2rem; }
+  .sub a { color: #7ab8ff; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: .7rem; }
+  .card { display: block; background: #1b1b1b; border: 1px solid #2a2a2a; border-radius: .6rem; padding: .9rem 1rem; text-decoration: none; color: #eee; }
+  .card:hover { border-color: #7ab8ff; }
+  .card .n { font-size: 1rem; margin-bottom: .25rem; }
+  .card .d { font-size: .78rem; color: #999; margin-bottom: .4rem; }
+  .tag { display: inline-block; font-size: .68rem; background: #2a2a2a; border-radius: 2rem; padding: .15rem .6rem; color: #aaa; margin-bottom: .5rem; }
+  .plats { display: flex; flex-wrap: wrap; gap: .3rem; }
+  .plat { font-size: .68rem; background: #22303d; border: 1px solid #2f4a5f; border-radius: 2rem; padding: .15rem .6rem; color: #7ab8ff; text-decoration: none; }
+  .plat:hover { border-color: #7ab8ff; background: #2a3a4d; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Jan Cox — Learning 📚</h1>
+  <div class="sub">study aids built from the Glossary, the Code of Conduct &amp; the acronyms · <a href="../index.html">&larr; back to Analyst THP</a></div>
+  <div class="grid">
+
+    <a class="card" href="sketchnotes.html">
+      <div class="tag">sketchnote</div>
+      <div class="n">✏️ Sketchnote</div>
+      <div class="d">The whole system on one page — the machinery of ordinary life, named out loud.</div>
+    </a>
+
+    <a class="card" href="comic.html">
+      <div class="tag">comic</div>
+      <div class="n">🎨 Jan Cox, Explained</div>
+      <div class="d">An 8-panel educational comic — from Meet Jan Cox and The ACT to Neuralizing and Maps.</div>
+    </a>
+
+    <a class="card" href="mindmap.html">
+      <div class="tag">mindmap</div>
+      <div class="n">🗺️ Mindmap</div>
+      <div class="d">Every entry, one collapsible map: 191 glossary terms · 157 Code maxims · 99 acronyms.</div>
+    </a>
+
+    <div class="card">
+      <div class="tag">flashcards</div>
+      <div class="n">🃏 Flashcards — 447 cards</div>
+      <div class="d">All three sets as Q&amp;A cards: glossary terms, Code maxims, acronym expansions.</div>
+      <div class="plats">
+        <a class="plat" href="flashcards.md">read (.md)</a>
+        <a class="plat" href="flashcards.csv" download>download (.csv)</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
